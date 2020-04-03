@@ -27,7 +27,7 @@ do
   since_last_activity=$(expr $now - $last_activity)
   if [ "$since_last_activity" -gt "$shutdown_after" ]; then
     if [ "$idle" ]; then
-      shutdown -h now
+      /sbin/shutdown -h now
       /bin/sleep 60
     fi
   fi
