@@ -1,12 +1,12 @@
 # ec2-auto-shutdown
 
-*ec2-auto-shutdown* is a systemd service that helps you reduce AWS costs. 
+*ec2-auto-shutdown* is a systemd service that helps you reduce AWS costs.
 It will shut down an instance automatically when there is no SSH activity for configured period of time and average load is bellow configured threshold.
 
 ## Installation
 
 ```sh
-$ curl -o- https://raw.githubusercontent.com/bokan/ec2-auto-shutdown/master/install.sh | sudo bash
+$ curl -o- https://raw.githubusercontent.com/stream-toma/ec2-auto-shutdown/master/install.sh | sudo bash
 ```
 
 ## Configuration

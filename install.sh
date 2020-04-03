@@ -11,7 +11,7 @@
   config_install_path="/etc/ec2-auto-shutdown"
   systemd_service_unit_install_path="/etc/systemd/system"
 
-  github_url="https://raw.githubusercontent.com/bokan/ec2-auto-shutdown/master"
+  github_url="https://raw.githubusercontent.com/stream-toma/ec2-auto-shutdown/master"
   service_path="/ec2-auto-shutdown"
   config_path="/ec2-auto-shutdown-config"
   systemd_service_unit_path="/ec2-auto-shutdown.service"
@@ -41,13 +41,13 @@
   make_dir_and_verify $service_install_path
   make_dir_and_verify $config_install_path
 
-  download_and_verify $service_install_path$service_path $github_url$service_path 
-  download_and_verify $config_install_path$config_path $github_url$config_path 
-  download_and_verify $systemd_service_unit_install_path$systemd_service_unit_path $github_url$systemd_service_unit_path 
+  download_and_verify $service_install_path$service_path $github_url$service_path
+  download_and_verify $config_install_path$config_path $github_url$config_path
+  download_and_verify $systemd_service_unit_install_path$systemd_service_unit_path $github_url$systemd_service_unit_path
 
   chmod +x $service_install_path$service_path
-  systemctl enable ec2-auto-shutdown.service 
-  systemctl start ec2-auto-shutdown.service 
+  systemctl enable ec2-auto-shutdown.service
+  systemctl start ec2-auto-shutdown.service
 
   echo "ec2-auto-shutdown is installed."
 
