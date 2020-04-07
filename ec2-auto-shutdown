@@ -13,6 +13,7 @@ last_activity=$(/bin/date +%s)
 while true
 do
   users_connected=$(who -s | wc -l)
+  sshuttle_connected=$(pgrep python3 | wc -l)
   average_load=$(uptime | /bin/sed 's/.*load average: //' | awk -F\, '{print $1 }')
   idle=$(echo $average_load'<'$avg_load_threshold | bc -l)
 
@@ -26,9 +27,11 @@ do
   now=$(/bin/date +%s)
   since_last_activity=$(expr $now - $last_activity)
   if [ "$since_last_activity" -gt "$shutdown_after" ]; then
-    if [ "$idle" ]; then
-      /sbin/shutdown -h now
-      /bin/sleep 60
+    if [ "$sshuttle_connected" -lt "1" ]; then
+      if [ "$idle" ]; then
+        /sbin/shutdown -h now
+        /bin/sleep 60
+      fi
     fi
   fi
   /bin/sleep 1
