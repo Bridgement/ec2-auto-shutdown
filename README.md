@@ -6,7 +6,7 @@ It will shut down an instance automatically when there is no SSH activity for co
 ## Installation
 
 ```sh
-$ curl -o- https://raw.githubusercontent.com/VatIt-Stream/ec2-auto-shutdown/master/install.sh | sudo bash
+$ curl -o- https://raw.githubusercontent.com/Bridgement/ec2-auto-shutdown/master/install.sh | sudo bash
 ```
 
 ## Configuration
